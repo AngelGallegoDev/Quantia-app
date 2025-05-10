@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import "./global.css"
+import Home from './Components/home';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Teplate de Quantia-app limpio</Text>
       <StatusBar style="auto" />
+      <Home/>
     </View>
   );
 }
