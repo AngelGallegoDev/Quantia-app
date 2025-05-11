@@ -10,8 +10,8 @@ import {
 
 export default function Input({ label, placeholder }) {
   return (
-    <View className="flex flex-col mt-8">
-      <Text className="font-bold text-center text-principal">{label}</Text>
+    <View className="flex flex-col mt-4">
+      {label &&  <Text className="font-bold text-center text-principal mt-3">{label}</Text>}
       <TextInput
         secureTextEntry={label.toLowerCase() === "password" ? true : false}
         onSubmitEditing={Keyboard.dismiss}
