@@ -33,7 +33,7 @@ export default function RecoveryPW() {
             Go Back
           </Text>
         <Text className="text-lg text-center mx-4 mt-12 text-segundario">
-            "Having trouble? Contact support"
+            Having trouble? Contact support
           </Text>
       </View>
     </TouchableWithoutFeedback>

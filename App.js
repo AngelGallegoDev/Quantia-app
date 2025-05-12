@@ -3,11 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import "./global.css"
 import Login from './Views/Login';
 import RecoveryPW from './Views/RecoveryPW';
+import SignUp from './Views/SignUp';
 
 export default function App() {
   return (
     <View style={styles.body}>
-      <RecoveryPW/>    
+      <SignUp/>    
       <StatusBar style="auto" />
     </View>
   );

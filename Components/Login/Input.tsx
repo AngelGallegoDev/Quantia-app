@@ -28,12 +28,3 @@ export default function Input({ label, placeholder }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  Input: {
-    backgroundColor: "#2C3E50",
-    padding: 15,
-    width: 260,
-    borderRadius: 50,
-  },
-});
