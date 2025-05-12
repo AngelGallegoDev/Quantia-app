@@ -24,8 +24,8 @@ export default function Input({ label, placeholder, link, link_funcion }) {
       />
       {link && (
         <Pressable onPress={() => {link_funcion && link_funcion()}} className="mt-1 self-end">
-          <Text className="font-bold text-xs text-segundario text-right">
-            Forgot your password?
+          <Text className="font-bold text-xs text-segundario">
+            {link}
           </Text>
         </Pressable>
       )}

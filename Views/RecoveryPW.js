@@ -5,12 +5,21 @@ import {
   Image,
   Keyboard,
   TouchableWithoutFeedback,
+  Pressable,
 } from "react-native";
 import "../global.css";
 import Button from "../Components/Login/Button";
 import Input from "../Components/Login/Input";
+import { useNavigation } from "@react-navigation/native";
 
 export default function RecoveryPW() {
+  const navigation = useNavigation();
+
+  const handleBack = () => {
+    navigation.navigate('Login');
+  };
+
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 items-center justify-center bg-[#ECF0F3]">
@@ -29,9 +38,11 @@ export default function RecoveryPW() {
         <View className="mb-7 mt-11">
             <Button Tag="Send" type="btn"/>
         </View>
-        <Text className="text-lg text-center mx-4 mb-12 text-segundario">
-            Go Back
-          </Text>
+        <Pressable onPress={handleBack} className="mt-1 self-center">
+                  <Text className="font-bold text-segundario">
+                    Go Back
+                  </Text>
+                </Pressable>
         <Text className="text-lg text-center mx-4 mt-12 text-segundario">
             Having trouble? Contact support
           </Text>
