@@ -13,7 +13,7 @@ import Input from "../Components/Login/Input";
 export default function RecoveryPW() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex flex-col items-center justify-center">
+      <View className="flex-1 items-center justify-center bg-[#ECF0F3]">
         <Image
           source={require("../assets/passwordlogo.png")}
           style={styles.logo}
@@ -27,7 +27,7 @@ export default function RecoveryPW() {
           We’ll send you a link to reset your password.
         </Text>
         <View className="mb-7 mt-11">
-            <Button Tag="Send" />
+            <Button Tag="Send" type="btn"/>
         </View>
         <Text className="text-lg text-center mx-4 mb-12 text-segundario">
             Go Back

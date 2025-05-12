@@ -1,16 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import {React} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import "./global.css"
 import Login from './Views/Login';
 import RecoveryPW from './Views/RecoveryPW';
 import SignUp from './Views/SignUp';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.body}>
-      <SignUp/>    
+     <SafeAreaView style={styles.body}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="RecoveryPW" component={RecoveryPW} />
+          <Stack.Screen name="SignUp" component={SignUp} />
+        </Stack.Navigator>
+      </NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -18,7 +30,5 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     backgroundColor: '#ECF0F3',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
