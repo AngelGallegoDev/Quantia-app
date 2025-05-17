@@ -16,9 +16,8 @@ export default function RecoveryPW() {
   const navigation = useNavigation();
 
   const handleBack = () => {
-    navigation.navigate('Login');
+    navigation.navigate("Login");
   };
-
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -36,16 +35,14 @@ export default function RecoveryPW() {
           We’ll send you a link to reset your password.
         </Text>
         <View className="mb-7 mt-11">
-            <Button Tag="Send" type="btn"/>
+          <Button Tag="Send" type="btn" />
         </View>
         <Pressable onPress={handleBack} className="mt-1 self-center">
-                  <Text className="font-bold text-segundario">
-                    Go Back
-                  </Text>
-                </Pressable>
+          <Text className="font-bold text-segundario">Go Back</Text>
+        </Pressable>
         <Text className="text-lg text-center mx-4 mt-12 text-segundario">
-            Having trouble? Contact support
-          </Text>
+          Having trouble? Contact support
+        </Text>
       </View>
     </TouchableWithoutFeedback>
   );
