@@ -21,7 +21,7 @@ export default function RecoveryPW() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex-1 items-center justify-center bg-[#ECF0F3]">
+      <View className="flex-1 items-center justify-center bg-[#ECF0F3] h-screen">
         <Image
           source={require("../assets/passwordlogo.png")}
           style={styles.logo}
