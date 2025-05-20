@@ -19,6 +19,10 @@ export default function Login() {
     navigation.navigate('SignUp');
   };
 
+  const handleLogin = () => {
+    navigation.navigate('Home');
+  };
+
   const handleRecoveryPW = () => {
     navigation.navigate('RecoveryPW');
   };
@@ -37,7 +41,7 @@ export default function Login() {
         <Input label="Email Address" placeholder="Example@gmail.com" />
         <Input label="Password" placeholder="*******************" link="Forgot your password?" link_funcion={handleRecoveryPW}/>
         <View className="flex flex-col items-center mt-9">
-          <Button Tag="Login" type="btn" />
+          <Button Tag="Login" type="btn" funcion={handleLogin}/>
           <View className="flex-row mt-9 mb-5">
             <View style={styles.linea}></View>
             <Text className="text-gray-400">O</Text>

@@ -10,6 +10,7 @@ import RecoveryPW from "./Views/RecoveryPW";
 import SignUp from "./Views/SignUp";
 // import { SafeAreaView } from "react-native-safe-area-context";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import Home from "./Views/Home";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export default function App() {
             initialRouteName="Login"
             screenOptions={{ headerShown: false }}
           >
+            <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="RecoveryPW" component={RecoveryPW} />
             <Stack.Screen name="SignUp" component={SignUp} />
