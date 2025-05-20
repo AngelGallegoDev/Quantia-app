@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15
+    container_name: quantia-db
+    ports:
+      - "5433:5432"                # Host 5433 → contenedor 5432
+    environment:
+      POSTGRES_USER: quantia_user   # Docker crea este usuario
+      POSTGRES_PASSWORD: 1234quantia
+      POSTGRES_DB: quantia_db       # Docker crea esta base
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  dbdata:
