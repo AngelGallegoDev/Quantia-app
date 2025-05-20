@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Inicio API
+app.get("/", (_req, res) => {
+  res.send("🎉 Bienvenido a la API de Quantia! Prueba /api/ping");
+});
 // Test de ping
 app.get("/api/ping", async (_req, res) => {
   try {
