@@ -10,6 +10,7 @@ import "../global.css";
 import Button from "../Components/Login/Button";
 import Input from "../Components/Login/Input";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Login() {
 
@@ -28,7 +29,8 @@ export default function Login() {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <SafeAreaView className="flex-1">
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 items-center justify-center bg-[#ECF0F3] h-screen">
         <Image source={require("../assets/logo.png")} style={styles.logo} />
         <Text className="text-4xl font-bold text-center mt-8 text-principal">
@@ -58,6 +60,7 @@ export default function Login() {
         </View>
       </View>
     </TouchableWithoutFeedback>
+    </SafeAreaView>
   );
 }
 

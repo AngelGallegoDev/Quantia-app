@@ -1,21 +1,19 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Keyboard,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import "../global.css";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Feather";
 import MovementRow from "../Components/Home/MovementRow";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
   const navigation = useNavigation();
 
+  const handleMovement = () => {
+    console.log("movements");
+  };
+
   return (
-    <View className="flex-1 bg-[#ECF0F3]">
+    <SafeAreaView className="flex-1 bg-[#ECF0F3]" style={{ paddingBottom: 88 }}>
       {/* Header Home */}
       <View className="flex-row mx-2 h-16">
         <View className="w-2/5 items-center justify-center h-16">
@@ -34,10 +32,10 @@ export default function Home() {
           <Icon name="eye-off" size={24} color="#2C3E50" />
         </View>
         <View className="w-1/12 h-16 justify-center items-center">
-          <Icon name="bell" size={24} color="#2C3E50" />;
+          <Icon name="bell" size={24} color="#2C3E50" />
         </View>
       </View>
-      <View className="flex items-center mt-6">
+      <View className="flex items-center mt-2">
         <Text className="text-2xl font-bold text-center text-principal">
           Total Balance
         </Text>
@@ -45,12 +43,12 @@ export default function Home() {
           $100.000
         </Text>
       </View>
-      <View className="flex-row mt-10">
+      <View className="flex-row mt-6 mb-3">
         <View className="w-1/2 h-16">
           <View className="flex-1 items-center justify-center">
             <Text className="text-lg font-bold">Montly Earnings</Text>
             <Text className="text-2xl font-bold text-center mt-3 text-green-800">
-              $100.000
+              +$5.500
             </Text>
           </View>
         </View>
@@ -58,27 +56,87 @@ export default function Home() {
           <View className="flex-1 items-center justify-center">
             <Text className="text-lg font-bold">Montly Expenses</Text>
             <Text className="text-2xl font-bold text-center mt-3 text-red-800">
-              $100.000
+              -$2.500
             </Text>
           </View>
         </View>
       </View>
       <View style={styles.container}>
         <Text className="text-lg text-center mt-3 text-white">
-          Recent Transactions
+          Recent Movements
         </Text>
-<>
-  <MovementRow date={"04/29/2025"} concept={"Salary"} amount={1500} method={"transfer"} />
-  <MovementRow date={"04/28/2025"} concept={"Groceries"} amount={-200} method={"card"} />
-  <MovementRow date={"04/27/2025"} concept={"Freelance"} amount={1200} method={"paypal"} />
-  <MovementRow date={"04/26/2025"} concept={"Electricity Bill"} amount={-100} method={"transfer"} />
-  <MovementRow date={"04/25/2025"} concept={"Stocks"} amount={800} method={"broker"} />
-  <MovementRow date={"04/24/2025"} concept={"Restaurant"} amount={-50} method={"card"} />
-    <MovementRow date={"04/24/2025"} concept={"Hacienda"} amount={-9999} method={"resuelve"} />
-</>
-
+        <>
+          <MovementRow
+            date={"04/29/2025"}
+            concept={"Salary"}
+            amount={1500}
+            method={"transfer"}
+          />
+          <MovementRow
+            date={"04/28/2025"}
+            concept={"Groceries"}
+            amount={-200}
+            method={"card"}
+          />
+          <MovementRow
+            date={"04/27/2025"}
+            concept={"Freelance"}
+            amount={1200}
+            method={"paypal"}
+          />
+          <MovementRow
+            date={"04/26/2025"}
+            concept={"Electricity Bill"}
+            amount={-100}
+            method={"transfer"}
+          />
+          <MovementRow
+            date={"04/25/2025"}
+            concept={"Stocks"}
+            amount={800}
+            method={"broker"}
+          />
+          <MovementRow
+            date={"04/24/2025"}
+            concept={"Restaurant"}
+            amount={-50}
+            method={"card"}
+          />
+        </>
       </View>
-    </View>
+      <View className="flex-1 items-center justify-center">
+        <Pressable
+          onPress={handleMovement}
+          style={styles.btnNewMovement}
+          className="flex flex-row justify-center items-center mb-5"
+        >
+          <Icon name="edit-2" size={17} color="#fff" />
+          <Text className="text-white text-center text-base mx-4">
+            New Movement
+          </Text>
+        </Pressable>
+      </View>
+       <View className="flex-1 items-center justify-center">
+        <Pressable
+          onPress={handleMovement}
+          style={styles.btnMic}
+          className="flex flex-row justify-center items-center"
+        >
+          <Icon name="mic" size={50} color="#fff" />
+        </Pressable>
+      </View>
+      <View className="absolute flex-row h-22 bottom-0 left-0 right-0 bg-[#2C3E50] items-center justify-center">
+        <Pressable className="w-1/3 mb-2 h-20 items-center justify-center">
+          <Icon name="home" size={30} color="#fff" />
+        </Pressable>
+        <Pressable className="w-1/3 mb-2 h-20 items-center justify-center">
+          <Icon name="calendar" size={30} color="#fff" />
+        </Pressable>
+        <Pressable className="w-1/3 mb-2 h-20 items-center justify-center">
+          <Icon name="settings" size={30} color="#fff" />
+        </Pressable>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -97,9 +155,21 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: "center",
     width: "90%",
-    height: 357,
+    height: 280,
     backgroundColor: "#2C3E50",
     marginVertical: 15,
     borderRadius: 20,
+  },
+  btnNewMovement: {
+    backgroundColor: "#2C3E50",
+    padding: 15,
+    width: 275,
+    borderRadius: 15,
+  },
+  btnMic: {
+    backgroundColor: "#2C3E50",
+    width: 125,
+    height: 125,
+    borderRadius: 100,
   },
 });

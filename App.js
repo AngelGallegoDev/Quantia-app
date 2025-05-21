@@ -8,8 +8,7 @@ import "./global.css";
 import Login from "./Views/Login";
 import RecoveryPW from "./Views/RecoveryPW";
 import SignUp from "./Views/SignUp";
-// import { SafeAreaView } from "react-native-safe-area-context";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import Home from "./Views/Home";
 
 const Stack = createNativeStackNavigator();
@@ -21,7 +20,6 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.body}>
         <NavigationContainer>
           <Stack.Navigator
             initialRouteName="Login"
@@ -34,14 +32,7 @@ export default function App() {
           </Stack.Navigator>
         </NavigationContainer>
         <StatusBar style="auto" />
-      </SafeAreaView>
     </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    backgroundColor: "#ECF0F3",
-  },
-});

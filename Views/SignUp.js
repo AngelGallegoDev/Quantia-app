@@ -13,6 +13,7 @@ import Input from "../Components/Login/Input";
 import { useNavigation } from "@react-navigation/native";
 import { Checkbox } from "react-native-paper";
 import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SignUp() {
   const navigation = useNavigation();
@@ -24,7 +25,8 @@ export default function SignUp() {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+   <SafeAreaView className="flex-1">
+     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 items-center justify-center bg-[#ECF0F3] h-screen">
         <Image
           source={require("../assets/sign-icon.png")}
@@ -61,6 +63,7 @@ export default function SignUp() {
         </Text>
       </View>
     </TouchableWithoutFeedback>
+   </SafeAreaView>
   );
 }
 
