@@ -9,7 +9,7 @@ import {
 export default function Input({ label, placeholder }) {
   return (
     <View className="flex flex-col mt-4">
-        <Text className="font-bold text-center text-principal">
+        <Text className="font-bold text-center text-white">
           {label}
         </Text>
       <TextInput

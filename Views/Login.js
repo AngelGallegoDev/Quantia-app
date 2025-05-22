@@ -51,9 +51,9 @@ export default function Login() {
             </Text>
           </MotiView>
           <MotiView
-            from={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ type: "timing", duration: 1000 }}
+            from={{ opacity: 0, translateY: -20}}
+            animate={{ opacity: 1, translateY: 0}}
+            transition={{ type: "timing", duration: 1350 }}
             className="justify-center items-center"
           >
             <Input label="Email Address" placeholder="Example@gmail.com" />
