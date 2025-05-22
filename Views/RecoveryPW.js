@@ -14,6 +14,8 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RecoveryPW() {
+
+  // navegacion/rutas
   const navigation = useNavigation();
 
   const handleBack = () => {
@@ -22,6 +24,7 @@ export default function RecoveryPW() {
 
   return (
     <SafeAreaView className="flex-1">
+      {/* Control del teclado  */}
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View className="flex-1 items-center justify-center bg-[#ECF0F3] h-screen">
           <Image

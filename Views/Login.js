@@ -14,6 +14,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Login() {
 
+
+  // Navegaciones/rutas
   const navigation = useNavigation();
 
   const handleSignUp = () => {
@@ -24,12 +26,16 @@ export default function Login() {
     navigation.navigate('Home');
   };
 
+
+
+  
   const handleRecoveryPW = () => {
     navigation.navigate('RecoveryPW');
   };
 
   return (
     <SafeAreaView className="flex-1">
+      {/* Control del teclado  */}
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 items-center justify-center bg-[#ECF0F3] h-screen">
         <Image source={require("../assets/logo.png")} style={styles.logo} />

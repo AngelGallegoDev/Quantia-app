@@ -2,7 +2,6 @@ import "../../global.css";
 import {
   Pressable,
   Text,
-  StyleSheet,
   View,
   TextInput,
   Keyboard,
@@ -22,6 +21,7 @@ export default function Input({ label, placeholder, link, link_funcion }) {
         className="border border-gray-300 rounded-lg h-14 mt-3 w-input text-center bg-white text-segundario"
         placeholder={placeholder}
       />
+      {/* permite poder poner un enlace de apoyo al input */}
       {link && (
         <Pressable onPress={() => {link_funcion && link_funcion()}} className="mt-1 self-end">
           <Text className="font-bold text-xs text-segundario">

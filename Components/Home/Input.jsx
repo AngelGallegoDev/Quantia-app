@@ -1,8 +1,6 @@
 import "../../global.css";
 import {
-  Pressable,
   Text,
-  StyleSheet,
   View,
   TextInput,
   Keyboard,

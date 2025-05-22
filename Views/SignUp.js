@@ -16,9 +16,13 @@ import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SignUp() {
+  
+  // Control Politica de privacidad
+  const [checked, setChecked] = useState(false);
+
+  // navegacion/rutas
   const navigation = useNavigation();
 
-  const [checked, setChecked] = useState(false);
 
   const handleLogin = () => {
     navigation.navigate("Login");
@@ -26,6 +30,7 @@ export default function SignUp() {
 
   return (
    <SafeAreaView className="flex-1">
+    {/* Control del teclado  */}
      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 items-center justify-center bg-[#ECF0F3] h-screen">
         <Image
