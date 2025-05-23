@@ -9,6 +9,7 @@ import ModalMovement from "../Components/Home/ModalMovement";
 import ContainerMovements from "../Components/Home/ContainerMovements";
 import BalanceOverview from "../Components/Home/BalanceOverview";
 import { MotiView } from "moti";
+import { Shadow } from "react-native-shadow-2";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -31,8 +32,8 @@ export default function Home() {
       >
         {/* Header Home */}
         <MotiView
-          from={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          from={{ opacity: 0, elevation: 0 }}
+          animate={{ opacity: 1, elevation: 20 }}
           transition={{ type: "timing", duration: 1500 }}
           className="justify-center items-center"
         >
@@ -77,31 +78,41 @@ export default function Home() {
           from={{ opacity: 0, translateY: 100 }}
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ type: "timing", duration: 1650 }}
-          className="justify-center items-center flex-1"
+          className="justify-center items-center flex-1 mb-3"
         >
           {/* boton de nuevo movimiento */}
-          <View className="flex-1 items-center justify-center">
+          <Shadow
+            distance={5}
+            startColor="rgba(0,0,0,0.25)"
+            radius={15}
+            offset={[0, 1]}
+          >
             <Pressable
               onPress={handleMovement}
               style={styles.btnNewMovement}
-              className="flex flex-row justify-center items-center mb-5"
+              className="flex flex-row justify-center items-center "
             >
               <Icon name="edit-2" size={17} color="#fff" />
               <Text className="text-white text-center text-base mx-4">
                 New Movement
               </Text>
             </Pressable>
-          </View>
+          </Shadow>
         </MotiView>
 
         <MotiView
-          from={{ opacity: 0, translateY: 100 }}
-          animate={{ opacity: 1, translateY: 0 }}
+          from={{ opacity: 0, translateY: 100, elevation: 0 }}
+          animate={{ opacity: 1, translateY: 0, elevation: 30 }}
           transition={{ type: "timing", duration: 1750 }}
           className="justify-center items-center flex-1"
         >
-          {/* boton de nuevo movimiento por voz */}
-          <View className="flex-1 items-center justify-center">
+          <Shadow
+            distance={10}
+            startColor="rgba(0,0,0,0.25)"
+            radius={50}
+            offset={[0, 4]}
+          >
+            {/* boton de nuevo movimiento por voz */}
             <Pressable
               onPress={handleMovement}
               style={styles.btnMic}
@@ -109,7 +120,7 @@ export default function Home() {
             >
               <Icon name="mic" size={50} color="#fff" />
             </Pressable>
-          </View>
+          </Shadow>
         </MotiView>
 
         {/* footer */}
@@ -150,14 +161,14 @@ const styles = StyleSheet.create({
   },
   btnNewMovement: {
     backgroundColor: "#2C3E50",
-    padding: 15,
-    width: 275,
+    paddingVertical: 15,
+    width: 285,
     borderRadius: 15,
   },
   btnMic: {
     backgroundColor: "#2C3E50",
-    width: 125,
+    width: 250,
     height: 125,
-    borderRadius: 100,
+    borderRadius: 50,
   },
 });

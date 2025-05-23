@@ -32,12 +32,12 @@ export default function ModalMovement({ state, action }) {
   // manejo de altura para el modal
   const screenHeight = Dimensions.get("window").height;
 
-  const handleClose = async() => {
+  const handleClose = async () => {
     SetClose(true)
     setTimeout(() => {
       action(false)
-    }, 600);
-      setTimeout(() => {
+    }, 400);
+    setTimeout(() => {
       SetClose(false)
     }, 650);
   }
@@ -62,7 +62,7 @@ export default function ModalMovement({ state, action }) {
             translateY:
               (close ? -500 : -5)
           }}
-          transition={{ type: "timing", duration: 600 }}
+          transition={{ type: "timing", duration: 500 }}
           className="justify-start items-center flex flex-col"
         >
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
