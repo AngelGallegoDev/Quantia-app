@@ -21,58 +21,25 @@ import { useState } from "react";
 export default function ModalMovement({ state, action }) {
 
   const tag = [
-    // 🏠 Personales / Hogar
     { label: "Home", value: "home" },
-    { label: "Rent", value: "rent" },
-    { label: "Utilities", value: "utilities" },
-    { label: "Groceries", value: "groceries" },
-    { label: "Maintenance", value: "maintenance" },
-
-    // 💼 Trabajo / Profesional
     { label: "Work", value: "work" },
-    { label: "Freelance", value: "freelance" },
-    { label: "Office Supplies", value: "office_supplies" },
-    { label: "Business Trip", value: "business_trip" },
-
-    // 🎓 Educación
     { label: "Studying", value: "studying" },
-    { label: "Books", value: "books" },
-    { label: "Courses", value: "courses" },
-    { label: "Tuition", value: "tuition" },
-
-    // 🚗 Vehículo
     { label: "Car", value: "car" },
-    { label: "Fuel", value: "fuel" },
-    { label: "Insurance", value: "insurance" },
-    { label: "Maintenance (Car)", value: "car_maintenance" },
-
-    // 🎉 Ocio y vida social
     { label: "Fun", value: "fun" },
-    { label: "Dining Out", value: "dining" },
-    { label: "Entertainment", value: "entertainment" },
-    { label: "Subscriptions", value: "subscriptions" },
-
-    // 💰 Finanzas
-    { label: "Income", value: "income" },
-    { label: "Salary", value: "salary" },
-    { label: "Savings", value: "savings" },
-    { label: "Investments", value: "investments" },
-    { label: "Debt", value: "debt" },
-
-    // 🌍 Otros
-    { label: "Other", value: "other" },
   ]
 
   const [close, SetClose] = useState(false)
   // manejo de altura para el modal
   const screenHeight = Dimensions.get("window").height;
 
-  const handleClose = () => {
+  const handleClose = async() => {
     SetClose(true)
     setTimeout(() => {
       action(false)
+    }, 600);
+      setTimeout(() => {
       SetClose(false)
-    }, 800);
+    }, 650);
   }
 
 
@@ -82,7 +49,7 @@ export default function ModalMovement({ state, action }) {
       <Modal
         visible={state}
         contentContainerStyle={{
-          height: screenHeight * 1.02, // por ejemplo 70% de la pantalla
+          height: screenHeight * 1.02,
           justifyContent: "flex-start",
         }}
         onDismiss={() => action(false)}
@@ -95,7 +62,7 @@ export default function ModalMovement({ state, action }) {
             translateY:
               (close ? -500 : -5)
           }}
-          transition={{ type: "timing", duration: 1000 }}
+          transition={{ type: "timing", duration: 600 }}
           className="justify-start items-center flex flex-col"
         >
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -109,7 +76,7 @@ export default function ModalMovement({ state, action }) {
                 </View>
                 <View className="flex-row h-32">
                   <View className="w-1/2 h-16">
-                    <Input label="Concept" placeholder="---" />
+                    <Input label="Concept" placeholder="----------" />
                   </View>
                   <View className="w-1/2 h-16">
                     <Select
@@ -161,7 +128,7 @@ export default function ModalMovement({ state, action }) {
                   <TextInput
                     multiline
                     numberOfLines={4}
-                    placeholder="Escribe aqui >"
+                    placeholder=">"
                     className="rounded-lg p-3 w-input h-20 text-base bg-white pt-2"
                     textAlignVertical="top"
                     placeholderTextColor="#6B7280"
