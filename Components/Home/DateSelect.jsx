@@ -1,38 +1,57 @@
-// import React, { useState } from 'react';
-// import { View, Button, Text, StyleSheet} from 'react-native';
-// import DatePicker from 'react-native-date-picker';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import Icon from 'react-native-vector-icons/Feather';
 
-// export default function DateSelect() {
-//   const [date, setDate] = useState(new Date());
-//   const [open, setOpen] = useState(false);
+export default function DateSelect() {
+  const [date, setDate] = useState(new Date());
+  const [isPickerVisible, setPickerVisible] = useState(false);
 
-//   return (
-//     <View>
-//       <Button title="Select Date" onPress={() => setOpen(true)} styles={styles.btn}/>
-//       <Text>Selected: {date.toDateString()}</Text>
+  const showPicker = () => setPickerVisible(true);
+  const hidePicker = () => setPickerVisible(false);
 
-//       <DatePicker
-//         modal
-//         open={open}
-//         date={date}
-//         onConfirm={(date) => {
-//           setOpen(false);
-//           setDate(date);
-//         }}
-//         onCancel={() => {
-//           setOpen(false);
-//         }}
-//         mode="date" // puedes cambiar a "time" o "datetime"
-//       />
-//     </View>
-//   );
-// }
+  const handleConfirm = (selectedDate) => {
+    setDate(selectedDate);
+    hidePicker();
+  };
 
-// const styles = StyleSheet.create({
-//   btn: {
-//     backgroundColor: "#2C3E50",
-//     padding: 15,
-//     width: 250,
-//     borderRadius: 40,
-//   },
-// });
+  return (
+    <View className='justify-center items-center mt-4'>
+      <Icon name="calendar" size={25} color="#fff" />
+      <Text className='text-white text-lg text-center'>{date.toDateString()}</Text>
+      <Pressable
+        onPress={showPicker}
+        style={
+          styles.btn}
+      >
+
+        <Text style={styles.btnText}>
+          Change Date
+        </Text>
+      </Pressable>
+
+
+      <DateTimePickerModal
+        isVisible={isPickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hidePicker}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: "transparent",
+    padding: 15,
+    width: 250,
+    borderRadius: 40,
+  },
+  btnText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 17,
+  }
+});

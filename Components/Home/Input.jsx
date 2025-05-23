@@ -16,6 +16,7 @@ export default function Input({ label, placeholder }) {
         onSubmitEditing={Keyboard.dismiss}
         className="rounded-lg h-14 mt-1 text-center bg-white text-segundario rounded-full mx-3"
         placeholder={placeholder}
+        placeholderTextColor={"#6B7280 "}
       />
     </View>
   );

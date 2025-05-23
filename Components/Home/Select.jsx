@@ -15,7 +15,6 @@ export default function Select({ label, items }) {
                 items={items}
                 setOpen={setOpen}
                 setValue={setValue}
-                 listMode={Platform.OS === 'android' ? 'MODAL' : 'FLATLIST'}
                 style={{
                     borderColor: '#fff',
                     borderRadius: 10,

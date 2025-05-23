@@ -89,9 +89,9 @@ export default function ModalMovement({ state, action }) {
                 <Text className="text-2xl font-bold mt-8 mb-2 text-black text-white">
                   New Movement
                 </Text>
-                <View className="flex-row mb-3">
+                <View className="flex-row h-32">
                   <View className="w-1/2 h-16">
-                    <Input label="Category" placeholder="---" />
+                    <Input label="Concept" placeholder="---" />
                   </View>
                   <View className="w-1/2 h-16">
                     <Select
@@ -103,15 +103,24 @@ export default function ModalMovement({ state, action }) {
                     ></Select>
                   </View>
                 </View>
-                <View className="flex-row mt-4 mb-3">
-                  <View className="w-1/2 h-16">
-                    <Input
-                      label="Email Address"
-                      placeholder="Example@gmail.com"
+                <View className="h-22 flex mt-2">
+                  <Text className="font-bold text-lg text-center text-white">
+                    Amount
+                  </Text>
+                  <View className="flex-row justify-center items-center mt-4">
+                    <Icon name="dollar-sign" size={30} color="#fff" />
+                    <TextInput
+                      onSubmitEditing={Keyboard.dismiss}
+                      className="text-white font-bold text-5xl text-segundario mx-1 pt-5"
+                      placeholder="0.00"
+                      placeholderTextColor="#fff"
+                      keyboardType="decimal-pad"
                     />
                   </View>
+                </View>
+                <View className="flex-row mt-4 mb-3">
                   <View className="w-1/2 h-16">
-                    <Input label="Tag" placeholder="Work-Home..." />
+                    <DateSelect/>
                   </View>
                 </View>
                 <View className="flex-row mt-4 mb-3">
