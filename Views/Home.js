@@ -10,6 +10,7 @@ import ContainerMovements from "../Components/Home/ContainerMovements";
 import BalanceOverview from "../Components/Home/BalanceOverview";
 import { MotiView } from "moti";
 import { Shadow } from "react-native-shadow-2";
+import Footer from "../Components/Globales/Footer";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -124,24 +125,7 @@ export default function Home() {
         </MotiView>
 
         {/* footer */}
-        <MotiView
-          from={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ type: "timing", duration: 1800 }}
-          className="justify-center items-center absolute bottom-0 left-0 right-0"
-        >
-          <View className="absolute flex-row h-22 bottom-0 left-0 right-0 bg-[#2C3E50] items-center justify-center">
-            <Pressable className="w-1/3 mb-2 h-20 items-center justify-center">
-              <Icon name="home" size={30} color="#fff" />
-            </Pressable>
-            <Pressable className="w-1/3 mb-2 h-20 items-center justify-center">
-              <Icon name="calendar" size={30} color="#fff" />
-            </Pressable>
-            <Pressable className="w-1/3 mb-2 h-20 items-center justify-center">
-              <Icon name="settings" size={30} color="#fff" />
-            </Pressable>
-          </View>
-        </MotiView>
+        <Footer location="home"/>
       </SafeAreaView>
     </PaperProvider>
   );
