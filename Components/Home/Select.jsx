@@ -7,8 +7,8 @@ export default function Select({ label, items }) {
     const [value, setValue] = useState(null);
 
     return (
-        <View style={{ zIndex: 1000, marginHorizontal: 12, marginTop: 16 }}>
-            <Text className="font-bold text-center text-white mb-1">{label}</Text>
+        <View style={{ zIndex: 1000, marginHorizontal: 11, marginTop: 12.5 }}>
+            <Text className="font-bold text-center text-white mb-2">{label}</Text>
             <DropDownPicker
                 open={open}
                 value={value}
@@ -18,12 +18,12 @@ export default function Select({ label, items }) {
                 style={{
                     borderColor: '#fff',
                     borderRadius: 10,
-                    backgroundColor: '#fff', // azul oscuro con transparencia
-                    paddingVertical: 8,
-                    paddingHorizontal: 12,
+                    backgroundColor: '#34495E', // azul oscuro con transparencia
+                    borderColor: '#fff', 
+                    borderWidth: 1
                 }}
                 dropDownContainerStyle={{
-                    backgroundColor: '#fff)', // menú desplegable con más opacidad
+                    backgroundColor: '#34495E', // menú desplegable con más opacidad
                     borderRadius: 10,
                     borderColor: '#FFF',
                 }}

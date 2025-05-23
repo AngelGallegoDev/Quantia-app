@@ -15,6 +15,7 @@ import Input from "./Input";
 import DateSelect from "./DateSelect";
 import { MotiView } from "moti";
 import Icon from "react-native-vector-icons/Feather";
+import { useState } from "react";
 
 
 export default function ModalMovement({ state, action }) {
@@ -62,8 +63,17 @@ export default function ModalMovement({ state, action }) {
     { label: "Other", value: "other" },
   ]
 
+  const [close, SetClose] = useState(false)
   // manejo de altura para el modal
   const screenHeight = Dimensions.get("window").height;
+
+  const handleClose = () => {
+    SetClose(true)
+    setTimeout(() => {
+      action(false)
+      SetClose(false)
+    }, 800);
+  }
 
 
   return (
@@ -79,16 +89,24 @@ export default function ModalMovement({ state, action }) {
       >
         <MotiView
           from={{ opacity: 0, translateY: -500 }}
-          animate={{ opacity: 1, translateY: -5 }}
+          animate={{
+            opacity:
+              (close ? 0 : 1),
+            translateY:
+              (close ? -500 : -5)
+          }}
           transition={{ type: "timing", duration: 1000 }}
           className="justify-start items-center flex flex-col"
         >
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View className="h-screen">
               <View style={styles.modal}>
-                <Text className="text-2xl font-bold mt-8 mb-2 text-black text-white">
+                <Text className="text-2xl font-bold text-white mt-6">
                   New Movement
                 </Text>
+                <View className="flex justify-center items-center">
+                  <DateSelect />
+                </View>
                 <View className="flex-row h-32">
                   <View className="w-1/2 h-16">
                     <Input label="Concept" placeholder="---" />
@@ -103,27 +121,22 @@ export default function ModalMovement({ state, action }) {
                     ></Select>
                   </View>
                 </View>
-                <View className="h-22 flex mt-2">
+                <View className="h-22 flex">
                   <Text className="font-bold text-lg text-center text-white">
                     Amount
                   </Text>
-                  <View className="flex-row justify-center items-center mt-4">
+                  <View className="flex-row justify-center items-center mt-2">
                     <Icon name="dollar-sign" size={30} color="#fff" />
                     <TextInput
                       onSubmitEditing={Keyboard.dismiss}
-                      className="text-white font-bold text-5xl text-segundario mx-1 pt-5"
+                      className="text-white font-bold text-5xl text-segundario mx-1 mt-3 "
                       placeholder="0.00"
                       placeholderTextColor="#fff"
                       keyboardType="decimal-pad"
                     />
                   </View>
                 </View>
-                <View className="flex-row mt-4 mb-3">
-                  <View className="w-1/2 h-16">
-                    <DateSelect/>
-                  </View>
-                </View>
-                <View className="flex-row mt-4 mb-3">
+                <View className="flex-row mb-5">
                   <View className="w-1/2 h-16">
                     <Select
                       label="Payment Method"
@@ -141,28 +154,50 @@ export default function ModalMovement({ state, action }) {
                     ></Select>
                   </View>
                 </View>
-                <View className="h-40 mt-4 mb-3">
+                <View className="mt-4 mb-3">
                   <Text className="text-base font-bold my-2 text-black text-white text-center">
                     Description
                   </Text>
                   <TextInput
                     multiline
                     numberOfLines={4}
-                    placeholder=""
-                    className="rounded-lg p-3 w-input text-base text-blac bg-white pt-2"
-                    textAlignVertical="top" // importante para que el texto comience arriba
+                    placeholder="Escribe aqui >"
+                    className="rounded-lg p-3 w-input h-20 text-base bg-white pt-2"
+                    textAlignVertical="top"
+                    placeholderTextColor="#6B7280"
+                    style={{
+                      borderColor: '#fff',
+                      borderRadius: 10,
+                      backgroundColor: '#34495E',
+                      borderColor: '#fff',
+                      borderWidth: 1
+                    }}
                   />
                 </View>
-                <Pressable
-                  onPress={() => action(false)}
-                  style={styles.btnClose}
-                  className="flex flex-row justify-center items-center"
-                >
-                  <Icon name="edit-2" size={17} color="#fff" />
-                  <Text className="text-center text-lg mx-4 text-white">
-                    Corfirm Movement
-                  </Text>
-                </Pressable>
+                <View className="flex-row">
+                  <View className="w-1/2 justify-center">
+                    <Pressable
+                      onPress={handleClose}
+                      style={styles.btnClose}
+                      className="flex-row justify-start items-center"
+                    >
+                      <Icon name="arrow-up" size={17} color="#EF4444" />
+                      <Text className="text-red-500">Close</Text>
+                    </Pressable>
+                  </View>
+                  <View className="w-1/2">
+                    <Pressable
+                      onPress={() => console.log("A")}
+                      style={styles.btnClose}
+                      className="flex flex-row justify-center items-center"
+                    >
+                      <Icon name="edit-2" size={17} color="#fff" />
+                      <Text className="text-center text-lg mx-4 text-white">
+                        Corfirm Movement
+                      </Text>
+                    </Pressable>
+                  </View>
+                </View>
               </View>
             </View>
           </TouchableWithoutFeedback>
