@@ -8,8 +8,8 @@ import {
   Pressable,
 } from "react-native";
 import "../global.css";
-import Button from "../Components/Login/Button";
-import Input from "../Components/Login/Input";
+import Button from "../Components/Globales/Button";
+import Input from "../Components/Globales/Input";
 import { useNavigation } from "@react-navigation/native";
 import { Checkbox } from "react-native-paper";
 import { useState } from "react";
